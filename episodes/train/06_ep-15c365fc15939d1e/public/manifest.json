@@ -1,0 +1,44 @@
+{
+  "schema_version": "1.0",
+  "env_version": "1.0.0",
+  "config_version": "1.0.0",
+  "config_name": "clean",
+  "config_sha256": "3960c6a713234e3162e8b7f9e29be63d1b8bd0c7fb9e762e9cc89dc5111736ec",
+  "episode_id": "ep-15c365fc15939d1e",
+  "company_name": "Meridian Pharma SA",
+  "base_currency": "EUR",
+  "currency_exponents": {
+    "CHF": 2,
+    "EUR": 2
+  },
+  "period_start": "2025-01-01T00:00:00+05:30",
+  "period_end": "2025-02-01T00:00:00+05:30",
+  "period_end_exclusive": true,
+  "timezone": "+05:30",
+  "counts": {
+    "ledger": 800,
+    "invoices": 71,
+    "payments": 45,
+    "fx": 75,
+    "documents": 116
+  },
+  "rounding": {
+    "mode": "ROUND_HALF_UP",
+    "unit": "base currency minor unit",
+    "scope": "per posting line"
+  },
+  "issue_types": [
+    "duplicate_invoice",
+    "payment_allocation",
+    "fx_conversion",
+    "period_cutoff"
+  ],
+  "files": [
+    "manifest.json",
+    "policy.json",
+    "ledger.csv",
+    "invoices.jsonl",
+    "payments.jsonl",
+    "fx.csv"
+  ]
+}

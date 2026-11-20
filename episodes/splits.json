@@ -1,0 +1,15 @@
+{
+  "description": "Open episodes. Seeds are public; closed evaluation must use different, secret, high-entropy seeds.",
+  "train": [
+    {"seed": 1001, "config": "train"}, {"seed": 1002, "config": "train"}, {"seed": 1003, "config": "train"},
+    {"seed": 1004, "config": "train"}, {"seed": 1005, "config": "train"}, {"seed": 1006, "config": "train"},
+    {"seed": 1007, "config": "clean"}, {"seed": 1008, "config": "clean"},
+    {"seed": 1009, "config": "interaction"}, {"seed": 1010, "config": "interaction"}
+  ],
+  "dev": [
+    {"seed": 2001, "config": "dev"}, {"seed": 2002, "config": "dev"}, {"seed": 2003, "config": "dev"},
+    {"seed": 2004, "config": "dev"}, {"seed": 2005, "config": "dev"}, {"seed": 2006, "config": "dev"},
+    {"seed": 2007, "config": "clean"}, {"seed": 2008, "config": "clean"},
+    {"seed": 2009, "config": "interaction"}, {"seed": 2010, "config": "interaction"}
+  ]
+}

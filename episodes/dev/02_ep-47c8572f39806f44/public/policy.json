@@ -1,0 +1,63 @@
+{
+  "policy_version": "1.0",
+  "base_currency": "EUR",
+  "timezone": "+05:00",
+  "ledger": {
+    "currency": "All ledger rows are kept in the base currency (minor units).",
+    "accounts": {
+      "1000": "Cash at bank",
+      "1100": "Accounts receivable",
+      "2300": "Unapplied customer receipts",
+      "4000": "Revenue",
+      "6100": "Rent expense",
+      "6200": "Payroll expense",
+      "6300": "Software expense",
+      "6400": "Travel expense",
+      "6500": "Utilities expense",
+      "7900": "Realised FX gain/loss"
+    },
+    "nulls": "Missing references are explicit null; never infer links that are not recorded.",
+    "timestamp": "Ledger timestamp of a document posting equals the document timestamp (same instant)."
+  },
+  "period": {
+    "start_inclusive": "2025-07-01T00:00:00+05:00",
+    "end_exclusive": "2025-08-01T00:00:00+05:00",
+    "basis": "An invoice belongs to the period of its issued_at instant, a payment to the period of its timestamp, both judged in the company timezone. Only in-period documents may be posted."
+  },
+  "fx": {
+    "rate_meaning": "1 unit of source_currency = rate units of target_currency (major units)",
+    "rate_date": "Local calendar date (company timezone) of the document timestamp; if no rate exists for that date use the most recent earlier date in fx.csv.",
+    "invoice_posting": "AR debit and revenue credit = convert(total_minor, rate at invoice date).",
+    "payment_posting": "Cash debit = convert(amount_minor, rate at payment date); AR credit per applied invoice = convert(applied_minor, rate at that invoice's date); unapplied remainder to 2300 at the payment-date rate; any difference to 7900.",
+    "rounding": "ROUND_HALF_UP to the base minor unit, per posting line."
+  },
+  "allocation": "A receipt's invoice_refs are the authoritative allocation. A refund debits 2300.",
+  "duplicates": "Two invoices of the same entity with the same po_ref and identical line items (sku, quantity, unit price, service_period) are duplicates. Equal totals alone are not. An invoice posted twice to AR is also a duplicate.",
+  "findings": {
+    "currency": "base currency",
+    "amount": {
+      "duplicate_invoice": "AR debit of the duplicate posting",
+      "payment_allocation": "expected AR credit for the (payment, invoice) pair minus the booked AR credit",
+      "fx_conversion": "|booked - correct| of the primary line (AR debit for invoices, cash debit for payments)",
+      "period_cutoff": "booked primary line (AR debit for invoices, cash debit for payments)"
+    },
+    "affected_ids": {
+      "duplicate_invoice": "both invoice_ids (duplicate document) or the single invoice_id (double posting)",
+      "payment_allocation": "payment_id and invoice_id",
+      "fx_conversion": "invoice_id or payment_id",
+      "period_cutoff": "invoice_id or payment_id"
+    },
+    "evidence": {
+      "duplicate_invoice": "both doc_ids + one ledger row of the duplicate posting; or doc_id + both AR (or both revenue) rows for a double posting",
+      "payment_allocation": "payment doc_id + invoice doc_id + one row of the payment's posting (cash, 2300, or AR row it credited) + fx_id of the invoice-date rate if the invoice is not in base currency",
+      "fx_conversion": "doc_id + primary ledger row (AR or revenue / cash) + fx_id of the correct rate",
+      "period_cutoff": "doc_id + primary ledger row (AR or revenue / cash)"
+    },
+    "evidence_aliases": "invoice_id / payment_id given as evidence are normalised to their doc_id",
+    "tolerance": {
+      "abs_minor": 2,
+      "rel": "0.001",
+      "rule": "|claimed - expected| <= max(abs_minor, floor(rel * expected))"
+    }
+  }
+}

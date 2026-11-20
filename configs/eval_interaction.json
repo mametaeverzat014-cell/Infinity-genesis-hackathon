@@ -1,0 +1,9 @@
+{
+  "config_version": "1.0.0",
+  "name": "eval_interaction",
+  "description": "Closed-evaluation interacting errors (both scenarios forced).",
+  "timezones": ["-08:00", "-05:00", "-03:00", "+01:00", "+03:00", "+05:00", "+05:30", "+06:00", "+09:00"],
+  "foreign_customer_share": 0.5,
+  "scenarios": {"partial_fx_payment_at_boundary": {"count": [1, 1]},
+                "duplicate_with_misapplied_payment": {"count": [1, 1]}}
+}

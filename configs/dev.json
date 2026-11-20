@@ -1,0 +1,6 @@
+{
+  "config_version": "1.0.0",
+  "name": "dev",
+  "description": "Open dev distribution (same generator as train, disjoint seeds).",
+  "clean_probability": 0.15
+}

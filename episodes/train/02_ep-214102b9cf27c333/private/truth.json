@@ -1,0 +1,108 @@
+{
+  "schema_version": "1.0",
+  "episode_id": "ep-214102b9cf27c333",
+  "base_currency": "KZT",
+  "clean": false,
+  "issues": [
+    {
+      "issue_id": "ISS-01",
+      "type": "duplicate_invoice",
+      "variant": "duplicate_document",
+      "scenario": "duplicate_with_misapplied_payment",
+      "affected_ids": [
+        "INV-CAPZNCSR",
+        "INV-PKHHXSNF"
+      ],
+      "expected_amount_minor": 934901579,
+      "currency": "KZT",
+      "evidence_sets": [
+        [
+          "DOC-BPZQ7X4Q",
+          "DOC-J272SUQA",
+          "LR-53JU5742E"
+        ],
+        [
+          "DOC-BPZQ7X4Q",
+          "DOC-J272SUQA",
+          "LR-NLTHRRQC8"
+        ]
+      ]
+    },
+    {
+      "issue_id": "ISS-02",
+      "type": "payment_allocation",
+      "variant": "missing",
+      "scenario": "duplicate_with_misapplied_payment",
+      "affected_ids": [
+        "INV-PKHHXSNF",
+        "PAY-EESWDQK3"
+      ],
+      "expected_amount_minor": 934901579,
+      "currency": "KZT",
+      "evidence_sets": [
+        [
+          "DOC-J272SUQA",
+          "DOC-M7Q2FEX5",
+          "FX-T4CLFPKA",
+          "LR-VPWNR4Y6N"
+        ],
+        [
+          "DOC-J272SUQA",
+          "DOC-M7Q2FEX5",
+          "FX-T4CLFPKA",
+          "LR-69NFF58XK"
+        ]
+      ]
+    },
+    {
+      "issue_id": "ISS-03",
+      "type": "fx_conversion",
+      "variant": "utc_date",
+      "scenario": "partial_fx_payment_at_boundary",
+      "affected_ids": [
+        "PAY-7DCA3V5M"
+      ],
+      "expected_amount_minor": 377024,
+      "currency": "KZT",
+      "evidence_sets": [
+        [
+          "DOC-XT4C4AGG",
+          "FX-XNN6F285",
+          "LR-6PDLQ6UCR"
+        ]
+      ]
+    },
+    {
+      "issue_id": "ISS-04",
+      "type": "payment_allocation",
+      "variant": "partial",
+      "scenario": "partial_fx_payment_at_boundary",
+      "affected_ids": [
+        "INV-BPFRNGMH",
+        "PAY-7DCA3V5M"
+      ],
+      "expected_amount_minor": 276666787,
+      "currency": "KZT",
+      "evidence_sets": [
+        [
+          "DOC-37L3MBYB",
+          "DOC-XT4C4AGG",
+          "FX-YVMM5YF2",
+          "LR-6PDLQ6UCR"
+        ],
+        [
+          "DOC-37L3MBYB",
+          "DOC-XT4C4AGG",
+          "FX-YVMM5YF2",
+          "LR-SKQVVHRHX"
+        ],
+        [
+          "DOC-37L3MBYB",
+          "DOC-XT4C4AGG",
+          "FX-YVMM5YF2",
+          "LR-NGJQXPSUW"
+        ]
+      ]
+    }
+  ]
+}

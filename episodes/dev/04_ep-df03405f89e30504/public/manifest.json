@@ -1,0 +1,44 @@
+{
+  "schema_version": "1.0",
+  "env_version": "1.0.0",
+  "config_version": "1.0.0",
+  "config_name": "dev",
+  "config_sha256": "a30e196050eef121f42e7eaa07c3b012e119184658510f184d8b0de48493a5ce",
+  "episode_id": "ep-df03405f89e30504",
+  "company_name": "Tundra Components LLP",
+  "base_currency": "EUR",
+  "currency_exponents": {
+    "EUR": 2,
+    "GBP": 2
+  },
+  "period_start": "2026-02-01T00:00:00+06:00",
+  "period_end": "2026-03-01T00:00:00+06:00",
+  "period_end_exclusive": true,
+  "timezone": "+06:00",
+  "counts": {
+    "ledger": 967,
+    "invoices": 68,
+    "payments": 50,
+    "fx": 73,
+    "documents": 118
+  },
+  "rounding": {
+    "mode": "ROUND_HALF_UP",
+    "unit": "base currency minor unit",
+    "scope": "per posting line"
+  },
+  "issue_types": [
+    "duplicate_invoice",
+    "payment_allocation",
+    "fx_conversion",
+    "period_cutoff"
+  ],
+  "files": [
+    "manifest.json",
+    "policy.json",
+    "ledger.csv",
+    "invoices.jsonl",
+    "payments.jsonl",
+    "fx.csv"
+  ]
+}

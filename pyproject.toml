@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "auditgym"
+version = "1.0.0"
+description = "Reproducible RL environment for training financial-audit agents (synthetic companies, hidden errors, evidence-based reward)."
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.11"
+dependencies = []   # runtime: Python standard library only
+
+[project.optional-dependencies]
+dev = ["pytest==8.3.3"]   # optional; the official check uses unittest
+
+[tool.setuptools.packages.find]
+include = ["auditgym*"]

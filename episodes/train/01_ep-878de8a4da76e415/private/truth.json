@@ -1,0 +1,191 @@
+{
+  "schema_version": "1.0",
+  "episode_id": "ep-878de8a4da76e415",
+  "base_currency": "GBP",
+  "clean": false,
+  "issues": [
+    {
+      "issue_id": "ISS-01",
+      "type": "duplicate_invoice",
+      "variant": "duplicate_document",
+      "scenario": "duplicate_with_misapplied_payment",
+      "affected_ids": [
+        "INV-3QLK2GLW",
+        "INV-Z2JK3A8H"
+      ],
+      "expected_amount_minor": 1829676,
+      "currency": "GBP",
+      "evidence_sets": [
+        [
+          "DOC-2VEGEFTH",
+          "DOC-99LC8PX2",
+          "LR-J73XEKPW4"
+        ],
+        [
+          "DOC-2VEGEFTH",
+          "DOC-99LC8PX2",
+          "LR-H277XKPX6"
+        ]
+      ]
+    },
+    {
+      "issue_id": "ISS-02",
+      "type": "payment_allocation",
+      "variant": "missing",
+      "scenario": "duplicate_with_misapplied_payment",
+      "affected_ids": [
+        "INV-3QLK2GLW",
+        "PAY-FFH9427F"
+      ],
+      "expected_amount_minor": 1829676,
+      "currency": "GBP",
+      "evidence_sets": [
+        [
+          "DOC-99LC8PX2",
+          "DOC-R7LXHAJH",
+          "LR-HAPJ38GBU"
+        ],
+        [
+          "DOC-99LC8PX2",
+          "DOC-R7LXHAJH",
+          "LR-3PFGQNTZS"
+        ]
+      ]
+    },
+    {
+      "issue_id": "ISS-03",
+      "type": "period_cutoff",
+      "variant": "backdated",
+      "scenario": null,
+      "affected_ids": [
+        "INV-PHBUQ42D"
+      ],
+      "expected_amount_minor": 1467321,
+      "currency": "GBP",
+      "evidence_sets": [
+        [
+          "DOC-HWMRBPUD",
+          "LR-TYFYQUA5K"
+        ],
+        [
+          "DOC-HWMRBPUD",
+          "LR-VN9LVNCRX"
+        ]
+      ]
+    },
+    {
+      "issue_id": "ISS-04",
+      "type": "period_cutoff",
+      "variant": "backdated",
+      "scenario": null,
+      "affected_ids": [
+        "INV-5RNMVZRE"
+      ],
+      "expected_amount_minor": 1607302,
+      "currency": "GBP",
+      "evidence_sets": [
+        [
+          "DOC-PFHPL3U4",
+          "LR-RLGWY46EN"
+        ],
+        [
+          "DOC-PFHPL3U4",
+          "LR-REWZ3EVM5"
+        ]
+      ]
+    },
+    {
+      "issue_id": "ISS-05",
+      "type": "duplicate_invoice",
+      "variant": "double_posting",
+      "scenario": null,
+      "affected_ids": [
+        "INV-LQ8MZJGB"
+      ],
+      "expected_amount_minor": 998516,
+      "currency": "GBP",
+      "evidence_sets": [
+        [
+          "DOC-RAFEHJ6M",
+          "LR-473R5EMND",
+          "LR-V38UJBGCN"
+        ],
+        [
+          "DOC-RAFEHJ6M",
+          "LR-3FPU98W99",
+          "LR-BWA2RT5J7"
+        ]
+      ]
+    },
+    {
+      "issue_id": "ISS-06",
+      "type": "duplicate_invoice",
+      "variant": "duplicate_document",
+      "scenario": null,
+      "affected_ids": [
+        "INV-4H6J37CR",
+        "INV-BEA5PZ33"
+      ],
+      "expected_amount_minor": 393812,
+      "currency": "GBP",
+      "evidence_sets": [
+        [
+          "DOC-3K2XZVZS",
+          "DOC-ATHAKBJ7",
+          "LR-MJ3J7T2HL"
+        ],
+        [
+          "DOC-3K2XZVZS",
+          "DOC-ATHAKBJ7",
+          "LR-EHSJGC7N2"
+        ]
+      ]
+    },
+    {
+      "issue_id": "ISS-07",
+      "type": "fx_conversion",
+      "variant": "inverted",
+      "scenario": null,
+      "affected_ids": [
+        "INV-AJXMFHMQ"
+      ],
+      "expected_amount_minor": 185705492980,
+      "currency": "GBP",
+      "evidence_sets": [
+        [
+          "DOC-VMPMNT5E",
+          "FX-7GL637EW",
+          "LR-AH7ZBJLBR"
+        ],
+        [
+          "DOC-VMPMNT5E",
+          "FX-7GL637EW",
+          "LR-WZCYSHNMU"
+        ]
+      ]
+    },
+    {
+      "issue_id": "ISS-08",
+      "type": "fx_conversion",
+      "variant": "inverted",
+      "scenario": null,
+      "affected_ids": [
+        "INV-8AFTDSDE"
+      ],
+      "expected_amount_minor": 3906921597,
+      "currency": "GBP",
+      "evidence_sets": [
+        [
+          "DOC-2LYZ7GWP",
+          "FX-6EWPQNM8",
+          "LR-ATM83K7Y8"
+        ],
+        [
+          "DOC-2LYZ7GWP",
+          "FX-6EWPQNM8",
+          "LR-AGKUKQAAD"
+        ]
+      ]
+    }
+  ]
+}

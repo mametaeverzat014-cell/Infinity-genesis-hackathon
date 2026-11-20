@@ -1,0 +1,8 @@
+{
+  "config_version": "1.0.0",
+  "name": "smoke",
+  "description": "Small, fast episodes for unit tests.",
+  "n_invoices": [20, 30],
+  "n_customers": [6, 10],
+  "ledger_rows": [200, 300]
+}

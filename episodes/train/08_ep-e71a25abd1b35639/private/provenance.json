@@ -1,0 +1,684 @@
+{
+  "schema_version": "1.0",
+  "env_version": "1.0.0",
+  "episode_id": "ep-e71a25abd1b35639",
+  "seed": "1009",
+  "seed_secret_used": false,
+  "config": {
+    "config_version": "1.0.0",
+    "name": "interaction",
+    "base_currencies": [
+      "USD",
+      "EUR",
+      "KZT",
+      "GBP",
+      "JPY"
+    ],
+    "foreign_currencies": [
+      "EUR",
+      "USD",
+      "GBP",
+      "CHF",
+      "CNY",
+      "JPY",
+      "KWD",
+      "KZT"
+    ],
+    "n_foreign_currencies": [
+      1,
+      3
+    ],
+    "timezones": [
+      "-08:00",
+      "-05:00",
+      "-03:00",
+      "+01:00",
+      "+03:00",
+      "+05:00",
+      "+05:30",
+      "+06:00",
+      "+09:00"
+    ],
+    "years": [
+      2025,
+      2026
+    ],
+    "n_customers": [
+      8,
+      20
+    ],
+    "n_vendors": [
+      4,
+      10
+    ],
+    "n_invoices": [
+      30,
+      75
+    ],
+    "prior_invoice_share": 0.25,
+    "n_next_period_invoices": [
+      2,
+      5
+    ],
+    "foreign_customer_share": 0.5,
+    "ledger_rows": [
+      300,
+      1200
+    ],
+    "distractors": {
+      "recurring_same_amount": [
+        1,
+        3
+      ],
+      "partial_deliveries": [
+        1,
+        3
+      ],
+      "split_payments": [
+        1,
+        4
+      ],
+      "multi_invoice_payments": [
+        1,
+        4
+      ],
+      "short_payments": [
+        1,
+        3
+      ],
+      "overpayments": [
+        1,
+        3
+      ],
+      "advances": [
+        1,
+        3
+      ],
+      "refunds": [
+        0,
+        2
+      ],
+      "tz_boundary_docs": [
+        1,
+        3
+      ],
+      "near_midnight_share": 0.12,
+      "next_period_payments": [
+        1,
+        3
+      ]
+    },
+    "clean_probability": 0.0,
+    "errors": {
+      "duplicate_invoice": {
+        "count": [
+          0,
+          1
+        ],
+        "variants": [
+          "duplicate_document",
+          "double_posting"
+        ]
+      },
+      "payment_allocation": {
+        "count": [
+          0,
+          1
+        ],
+        "variants": [
+          "missing",
+          "partial"
+        ]
+      },
+      "fx_conversion": {
+        "count": [
+          0,
+          1
+        ],
+        "variants": [
+          "utc_date",
+          "wrong_date",
+          "inverted",
+          "digit_typo"
+        ]
+      },
+      "period_cutoff": {
+        "count": [
+          0,
+          1
+        ],
+        "variants": [
+          "tz_boundary",
+          "backdated"
+        ]
+      }
+    },
+    "scenarios": {
+      "partial_fx_payment_at_boundary": {
+        "count": [
+          1,
+          1
+        ]
+      },
+      "duplicate_with_misapplied_payment": {
+        "count": [
+          1,
+          1
+        ]
+      }
+    },
+    "min_issues": 0,
+    "max_issues": 12,
+    "id_salt": "",
+    "order_salt": "",
+    "shuffle_records": false,
+    "env": {
+      "max_steps": 100,
+      "time_limit_s": 60.0,
+      "strict_evidence": false
+    },
+    "description": "Both interacting-error scenarios forced, plus up to one error of each type."
+  },
+  "config_sha256": "2f6937e7457f74725eeada0ed4cb0b1b4a6ee64f6846ee073ec2aa47b2a9277f",
+  "clean_draw": false,
+  "plan": [
+    [
+      "scenario",
+      "duplicate_with_misapplied_payment"
+    ],
+    [
+      "scenario",
+      "partial_fx_payment_at_boundary"
+    ],
+    [
+      "type",
+      "duplicate_invoice"
+    ],
+    [
+      "type",
+      "payment_allocation"
+    ]
+  ],
+  "skipped": [],
+  "distractors": [
+    "advances",
+    "multi_invoice_payments",
+    "overpayments",
+    "partial_deliveries",
+    "recurring_same_amount",
+    "short_payments",
+    "split_payments",
+    "tz_boundary_docs"
+  ],
+  "stages": [
+    "history",
+    "posting",
+    "injection",
+    "render"
+  ],
+  "issues": [
+    {
+      "issue_id": "ISS-01",
+      "type": "duplicate_invoice",
+      "variant": "duplicate_document",
+      "scenario": "duplicate_with_misapplied_payment",
+      "notes": {},
+      "setup": [
+        {
+          "op": "insert_document",
+          "table": "invoices",
+          "doc_id": "DOC-FHXBL3TX",
+          "invoice_id": "INV-YE9XAUFD"
+        },
+        {
+          "op": "insert_row",
+          "row": {
+            "row_id": "LR-QGSWKVM4R",
+            "timestamp": "2026-10-02T05:02:41+00:00",
+            "account": "1100",
+            "debit_minor": 3454354,
+            "credit_minor": 0,
+            "currency": "JPY",
+            "entity_id": "CUS-WLBQE8",
+            "invoice_id": "INV-YE9XAUFD",
+            "payment_id": null,
+            "journal_id": "JE-DVADVK4Y"
+          }
+        },
+        {
+          "op": "insert_row",
+          "row": {
+            "row_id": "LR-HFVXBA486",
+            "timestamp": "2026-10-02T05:02:41+00:00",
+            "account": "4000",
+            "debit_minor": 0,
+            "credit_minor": 3454354,
+            "currency": "JPY",
+            "entity_id": "CUS-WLBQE8",
+            "invoice_id": "INV-YE9XAUFD",
+            "payment_id": null,
+            "journal_id": "JE-DVADVK4Y"
+          }
+        },
+        {
+          "op": "insert_document",
+          "table": "payments",
+          "doc_id": "DOC-MC73F5AE",
+          "payment_id": "PAY-WF49QC7W"
+        },
+        {
+          "op": "insert_row",
+          "row": {
+            "row_id": "LR-9BNLZJSD6",
+            "timestamp": "2026-10-13T07:50:41+00:00",
+            "account": "1000",
+            "debit_minor": 3454354,
+            "credit_minor": 0,
+            "currency": "JPY",
+            "entity_id": "CUS-WLBQE8",
+            "invoice_id": null,
+            "payment_id": "PAY-WF49QC7W",
+            "journal_id": "JE-NAEVNYMD"
+          }
+        },
+        {
+          "op": "insert_row",
+          "row": {
+            "row_id": "LR-AMWWLEXV8",
+            "timestamp": "2026-10-13T07:50:41+00:00",
+            "account": "1100",
+            "debit_minor": 0,
+            "credit_minor": 3454354,
+            "currency": "JPY",
+            "entity_id": "CUS-WLBQE8",
+            "invoice_id": "INV-YE9XAUFD",
+            "payment_id": "PAY-WF49QC7W",
+            "journal_id": "JE-NAEVNYMD"
+          }
+        }
+      ],
+      "changes": [
+        {
+          "op": "insert_document",
+          "table": "invoices",
+          "doc_id": "DOC-5UF8BSJ4",
+          "invoice_id": "INV-VD39CC2N"
+        },
+        {
+          "op": "insert_row",
+          "row": {
+            "row_id": "LR-M4N7J387T",
+            "timestamp": "2026-10-06T06:19:41+00:00",
+            "account": "1100",
+            "debit_minor": 3454354,
+            "credit_minor": 0,
+            "currency": "JPY",
+            "entity_id": "CUS-WLBQE8",
+            "invoice_id": "INV-VD39CC2N",
+            "payment_id": null,
+            "journal_id": "JE-2862WRVD"
+          }
+        },
+        {
+          "op": "insert_row",
+          "row": {
+            "row_id": "LR-RH9983MSU",
+            "timestamp": "2026-10-06T06:19:41+00:00",
+            "account": "4000",
+            "debit_minor": 0,
+            "credit_minor": 3454354,
+            "currency": "JPY",
+            "entity_id": "CUS-WLBQE8",
+            "invoice_id": "INV-VD39CC2N",
+            "payment_id": null,
+            "journal_id": "JE-2862WRVD"
+          }
+        }
+      ]
+    },
+    {
+      "issue_id": "ISS-02",
+      "type": "payment_allocation",
+      "variant": "missing",
+      "scenario": "duplicate_with_misapplied_payment",
+      "notes": {
+        "redirected_to_duplicate": true
+      },
+      "setup": [],
+      "changes": [
+        {
+          "op": "insert_row",
+          "row": {
+            "row_id": "LR-3UFU95BDS",
+            "timestamp": "2026-10-13T07:50:41+00:00",
+            "account": "1100",
+            "debit_minor": 0,
+            "credit_minor": 3454354,
+            "currency": "JPY",
+            "entity_id": "CUS-WLBQE8",
+            "invoice_id": "INV-VD39CC2N",
+            "payment_id": "PAY-WF49QC7W",
+            "journal_id": "JE-NAEVNYMD"
+          }
+        },
+        {
+          "op": "delete_row",
+          "row": {
+            "row_id": "LR-AMWWLEXV8",
+            "timestamp": "2026-10-13T07:50:41+00:00",
+            "account": "1100",
+            "debit_minor": 0,
+            "credit_minor": 3454354,
+            "currency": "JPY",
+            "entity_id": "CUS-WLBQE8",
+            "invoice_id": "INV-YE9XAUFD",
+            "payment_id": "PAY-WF49QC7W",
+            "journal_id": "JE-NAEVNYMD"
+          }
+        }
+      ]
+    },
+    {
+      "issue_id": "ISS-03",
+      "type": "fx_conversion",
+      "variant": "utc_date",
+      "scenario": "partial_fx_payment_at_boundary",
+      "notes": {
+        "where": "period_boundary",
+        "correct_rate": "480.787",
+        "booked_rate": "477.919"
+      },
+      "setup": [
+        {
+          "op": "insert_document",
+          "table": "invoices",
+          "doc_id": "DOC-GAVA2WCT",
+          "invoice_id": "INV-VS6MR226"
+        },
+        {
+          "op": "insert_document",
+          "table": "payments",
+          "doc_id": "DOC-66KESE68",
+          "payment_id": "PAY-Z48R7C5H"
+        },
+        {
+          "op": "insert_row",
+          "row": {
+            "row_id": "LR-6HAJTSEB5",
+            "timestamp": "2026-09-30T21:04:51+00:00",
+            "account": "1000",
+            "debit_minor": 5458560,
+            "credit_minor": 0,
+            "currency": "JPY",
+            "entity_id": "CUS-CGRNGY",
+            "invoice_id": null,
+            "payment_id": "PAY-Z48R7C5H",
+            "journal_id": "JE-MFVTRWPX"
+          }
+        },
+        {
+          "op": "insert_row",
+          "row": {
+            "row_id": "LR-E328AKDP9",
+            "timestamp": "2026-09-30T21:04:51+00:00",
+            "account": "1100",
+            "debit_minor": 0,
+            "credit_minor": 5430177,
+            "currency": "JPY",
+            "entity_id": "CUS-CGRNGY",
+            "invoice_id": "INV-VS6MR226",
+            "payment_id": "PAY-Z48R7C5H",
+            "journal_id": "JE-MFVTRWPX"
+          }
+        },
+        {
+          "op": "insert_row",
+          "row": {
+            "row_id": "LR-A7GAZMQ32",
+            "timestamp": "2026-09-30T21:04:51+00:00",
+            "account": "7900",
+            "debit_minor": 0,
+            "credit_minor": 28383,
+            "currency": "JPY",
+            "entity_id": "CUS-CGRNGY",
+            "invoice_id": null,
+            "payment_id": "PAY-Z48R7C5H",
+            "journal_id": "JE-MFVTRWPX"
+          }
+        }
+      ],
+      "changes": [
+        {
+          "op": "update_row",
+          "before": {
+            "row_id": "LR-6HAJTSEB5",
+            "timestamp": "2026-09-30T21:04:51+00:00",
+            "account": "1000",
+            "debit_minor": 5458560,
+            "credit_minor": 0,
+            "currency": "JPY",
+            "entity_id": "CUS-CGRNGY",
+            "invoice_id": null,
+            "payment_id": "PAY-Z48R7C5H",
+            "journal_id": "JE-MFVTRWPX"
+          },
+          "after": {
+            "row_id": "LR-6HAJTSEB5",
+            "timestamp": "2026-09-30T21:04:51+00:00",
+            "account": "1000",
+            "debit_minor": 5425999,
+            "credit_minor": 0,
+            "currency": "JPY",
+            "entity_id": "CUS-CGRNGY",
+            "invoice_id": null,
+            "payment_id": "PAY-Z48R7C5H",
+            "journal_id": "JE-MFVTRWPX"
+          }
+        },
+        {
+          "op": "update_row",
+          "before": {
+            "row_id": "LR-A7GAZMQ32",
+            "timestamp": "2026-09-30T21:04:51+00:00",
+            "account": "7900",
+            "debit_minor": 0,
+            "credit_minor": 28383,
+            "currency": "JPY",
+            "entity_id": "CUS-CGRNGY",
+            "invoice_id": null,
+            "payment_id": "PAY-Z48R7C5H",
+            "journal_id": "JE-MFVTRWPX"
+          },
+          "after": {
+            "row_id": "LR-A7GAZMQ32",
+            "timestamp": "2026-09-30T21:04:51+00:00",
+            "account": "7900",
+            "debit_minor": 4178,
+            "credit_minor": 0,
+            "currency": "JPY",
+            "entity_id": "CUS-CGRNGY",
+            "invoice_id": null,
+            "payment_id": "PAY-Z48R7C5H",
+            "journal_id": "JE-MFVTRWPX"
+          }
+        }
+      ]
+    },
+    {
+      "issue_id": "ISS-04",
+      "type": "payment_allocation",
+      "variant": "partial",
+      "scenario": "partial_fx_payment_at_boundary",
+      "notes": {
+        "where": "period_boundary"
+      },
+      "setup": [],
+      "changes": [
+        {
+          "op": "update_row",
+          "before": {
+            "row_id": "LR-E328AKDP9",
+            "timestamp": "2026-09-30T21:04:51+00:00",
+            "account": "1100",
+            "debit_minor": 0,
+            "credit_minor": 5430177,
+            "currency": "JPY",
+            "entity_id": "CUS-CGRNGY",
+            "invoice_id": "INV-VS6MR226",
+            "payment_id": "PAY-Z48R7C5H",
+            "journal_id": "JE-MFVTRWPX"
+          },
+          "after": {
+            "row_id": "LR-E328AKDP9",
+            "timestamp": "2026-09-30T21:04:51+00:00",
+            "account": "1100",
+            "debit_minor": 0,
+            "credit_minor": 3583917,
+            "currency": "JPY",
+            "entity_id": "CUS-CGRNGY",
+            "invoice_id": "INV-VS6MR226",
+            "payment_id": "PAY-Z48R7C5H",
+            "journal_id": "JE-MFVTRWPX"
+          }
+        },
+        {
+          "op": "insert_row",
+          "row": {
+            "row_id": "LR-6ADGKRDDY",
+            "timestamp": "2026-09-30T21:04:51+00:00",
+            "account": "2300",
+            "debit_minor": 0,
+            "credit_minor": 1844840,
+            "currency": "JPY",
+            "entity_id": "CUS-CGRNGY",
+            "invoice_id": null,
+            "payment_id": "PAY-Z48R7C5H",
+            "journal_id": "JE-MFVTRWPX"
+          }
+        },
+        {
+          "op": "update_row",
+          "before": {
+            "row_id": "LR-A7GAZMQ32",
+            "timestamp": "2026-09-30T21:04:51+00:00",
+            "account": "7900",
+            "debit_minor": 4178,
+            "credit_minor": 0,
+            "currency": "JPY",
+            "entity_id": "CUS-CGRNGY",
+            "invoice_id": null,
+            "payment_id": "PAY-Z48R7C5H",
+            "journal_id": "JE-MFVTRWPX"
+          },
+          "after": {
+            "row_id": "LR-A7GAZMQ32",
+            "timestamp": "2026-09-30T21:04:51+00:00",
+            "account": "7900",
+            "debit_minor": 2758,
+            "credit_minor": 0,
+            "currency": "JPY",
+            "entity_id": "CUS-CGRNGY",
+            "invoice_id": null,
+            "payment_id": "PAY-Z48R7C5H",
+            "journal_id": "JE-MFVTRWPX"
+          }
+        }
+      ]
+    },
+    {
+      "issue_id": "ISS-05",
+      "type": "duplicate_invoice",
+      "variant": "double_posting",
+      "scenario": null,
+      "notes": {},
+      "setup": [],
+      "changes": [
+        {
+          "op": "insert_row",
+          "row": {
+            "row_id": "LR-NKSE3V7T3",
+            "timestamp": "2026-10-03T10:40:18+00:00",
+            "account": "1100",
+            "debit_minor": 1383756,
+            "credit_minor": 0,
+            "currency": "JPY",
+            "entity_id": "CUS-5YQV9W",
+            "invoice_id": "INV-UVMB5KUC",
+            "payment_id": null,
+            "journal_id": "JE-3KJWNRRB"
+          }
+        },
+        {
+          "op": "insert_row",
+          "row": {
+            "row_id": "LR-QAVKTYA34",
+            "timestamp": "2026-10-03T10:40:18+00:00",
+            "account": "4000",
+            "debit_minor": 0,
+            "credit_minor": 1383756,
+            "currency": "JPY",
+            "entity_id": "CUS-5YQV9W",
+            "invoice_id": "INV-UVMB5KUC",
+            "payment_id": null,
+            "journal_id": "JE-3KJWNRRB"
+          }
+        }
+      ]
+    },
+    {
+      "issue_id": "ISS-06",
+      "type": "payment_allocation",
+      "variant": "missing",
+      "scenario": null,
+      "notes": {},
+      "setup": [],
+      "changes": [
+        {
+          "op": "insert_row",
+          "row": {
+            "row_id": "LR-PQUMFXFEY",
+            "timestamp": "2026-10-12T05:54:08+00:00",
+            "account": "2300",
+            "debit_minor": 0,
+            "credit_minor": 6086085,
+            "currency": "JPY",
+            "entity_id": "CUS-N74GX3",
+            "invoice_id": null,
+            "payment_id": "PAY-DAG8H68A",
+            "journal_id": "JE-V4ZDY6N6"
+          }
+        },
+        {
+          "op": "delete_row",
+          "row": {
+            "row_id": "LR-687AMBCSF",
+            "timestamp": "2026-10-12T05:54:08+00:00",
+            "account": "1100",
+            "debit_minor": 0,
+            "credit_minor": 6076343,
+            "currency": "JPY",
+            "entity_id": "CUS-N74GX3",
+            "invoice_id": "INV-ABZMKYNS",
+            "payment_id": "PAY-DAG8H68A",
+            "journal_id": "JE-V4ZDY6N6"
+          }
+        },
+        {
+          "op": "delete_row",
+          "row": {
+            "row_id": "LR-DXWSH36JU",
+            "timestamp": "2026-10-12T05:54:08+00:00",
+            "account": "7900",
+            "debit_minor": 0,
+            "credit_minor": 9742,
+            "currency": "JPY",
+            "entity_id": "CUS-N74GX3",
+            "invoice_id": null,
+            "payment_id": "PAY-DAG8H68A",
+            "journal_id": "JE-V4ZDY6N6"
+          }
+        }
+      ]
+    }
+  ]
+}

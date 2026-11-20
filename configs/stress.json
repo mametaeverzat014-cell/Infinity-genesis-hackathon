@@ -1,0 +1,16 @@
+{
+  "config_version": "1.0.0",
+  "name": "stress",
+  "description": "Test-only: maximum error density (12 issues) to stress injection independence.",
+  "timezones": ["-05:00", "+05:00", "+09:00", "-08:00"],
+  "foreign_customer_share": 0.6,
+  "min_issues": 12,
+  "scenarios": {"partial_fx_payment_at_boundary": {"count": [1, 1]},
+                "duplicate_with_misapplied_payment": {"count": [1, 1]}},
+  "errors": {
+    "duplicate_invoice": {"count": [2, 3], "variants": ["duplicate_document", "double_posting"]},
+    "payment_allocation": {"count": [2, 3], "variants": ["missing", "partial"]},
+    "fx_conversion": {"count": [2, 3], "variants": ["utc_date", "wrong_date", "inverted", "digit_typo"]},
+    "period_cutoff": {"count": [2, 3], "variants": ["tz_boundary", "backdated"]}
+  }
+}

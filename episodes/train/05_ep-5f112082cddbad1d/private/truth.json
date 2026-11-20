@@ -1,0 +1,96 @@
+{
+  "schema_version": "1.0",
+  "episode_id": "ep-5f112082cddbad1d",
+  "base_currency": "KZT",
+  "clean": false,
+  "issues": [
+    {
+      "issue_id": "ISS-01",
+      "type": "period_cutoff",
+      "variant": "tz_boundary",
+      "scenario": null,
+      "affected_ids": [
+        "PAY-F4NEW838"
+      ],
+      "expected_amount_minor": 835506698,
+      "currency": "KZT",
+      "evidence_sets": [
+        [
+          "DOC-E3PPUT7U",
+          "LR-DJBNS6UU3"
+        ]
+      ]
+    },
+    {
+      "issue_id": "ISS-02",
+      "type": "period_cutoff",
+      "variant": "tz_boundary",
+      "scenario": null,
+      "affected_ids": [
+        "INV-7DHTYC3P"
+      ],
+      "expected_amount_minor": 2189060003,
+      "currency": "KZT",
+      "evidence_sets": [
+        [
+          "DOC-FKLNAAC8",
+          "LR-7V9E2B9XY"
+        ],
+        [
+          "DOC-FKLNAAC8",
+          "LR-NMKD6PP2Q"
+        ]
+      ]
+    },
+    {
+      "issue_id": "ISS-03",
+      "type": "duplicate_invoice",
+      "variant": "duplicate_document",
+      "scenario": null,
+      "affected_ids": [
+        "INV-Q97852MZ",
+        "INV-UH9U8QMN"
+      ],
+      "expected_amount_minor": 1416491433,
+      "currency": "KZT",
+      "evidence_sets": [
+        [
+          "DOC-HPV3B4DC",
+          "DOC-UXP2UTR9",
+          "LR-5QMQBRNEG"
+        ],
+        [
+          "DOC-HPV3B4DC",
+          "DOC-UXP2UTR9",
+          "LR-WRN5JEJTX"
+        ]
+      ]
+    },
+    {
+      "issue_id": "ISS-04",
+      "type": "payment_allocation",
+      "variant": "missing",
+      "scenario": null,
+      "affected_ids": [
+        "INV-KMPBXKJ3",
+        "PAY-S6DYEK8E"
+      ],
+      "expected_amount_minor": 1435303523,
+      "currency": "KZT",
+      "evidence_sets": [
+        [
+          "DOC-BG7FB7JZ",
+          "DOC-JXUWG8YB",
+          "FX-UXB44J7W",
+          "LR-WGNQG3KUK"
+        ],
+        [
+          "DOC-BG7FB7JZ",
+          "DOC-JXUWG8YB",
+          "FX-UXB44J7W",
+          "LR-ZWHQU9SH7"
+        ]
+      ]
+    }
+  ]
+}

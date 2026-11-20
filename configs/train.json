@@ -1,0 +1,6 @@
+{
+  "config_version": "1.0.0",
+  "name": "train",
+  "description": "Open training distribution: all four error types, both interaction scenarios, ~15% clean companies.",
+  "clean_probability": 0.15
+}

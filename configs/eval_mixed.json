@@ -1,0 +1,12 @@
+{
+  "config_version": "1.0.0",
+  "name": "eval_mixed",
+  "description": "Closed-evaluation mix: 1..3 errors of each type, scenarios optional. Use with secret high-entropy seeds.",
+  "min_issues": 1,
+  "errors": {
+    "duplicate_invoice": {"count": [0, 2], "variants": ["duplicate_document", "double_posting"]},
+    "payment_allocation": {"count": [0, 2], "variants": ["missing", "partial"]},
+    "fx_conversion": {"count": [0, 2], "variants": ["utc_date", "wrong_date", "inverted", "digit_typo"]},
+    "period_cutoff": {"count": [0, 2], "variants": ["tz_boundary", "backdated"]}
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "env_version": "1.0.0",
+  "config_version": "1.0.0",
+  "config_name": "interaction",
+  "config_sha256": "2f6937e7457f74725eeada0ed4cb0b1b4a6ee64f6846ee073ec2aa47b2a9277f",
+  "episode_id": "ep-c4cbeef5314cc452",
+  "company_name": "Meridian Mining GmbH",
+  "base_currency": "JPY",
+  "currency_exponents": {
+    "EUR": 2,
+    "JPY": 0,
+    "KWD": 3,
+    "USD": 2
+  },
+  "period_start": "2025-07-01T00:00:00-05:00",
+  "period_end": "2025-08-01T00:00:00-05:00",
+  "period_end_exclusive": true,
+  "timezone": "-05:00",
+  "counts": {
+    "ledger": 925,
+    "invoices": 58,
+    "payments": 40,
+    "fx": 228,
+    "documents": 98
+  },
+  "rounding": {
+    "mode": "ROUND_HALF_UP",
+    "unit": "base currency minor unit",
+    "scope": "per posting line"
+  },
+  "issue_types": [
+    "duplicate_invoice",
+    "payment_allocation",
+    "fx_conversion",
+    "period_cutoff"
+  ],
+  "files": [
+    "manifest.json",
+    "policy.json",
+    "ledger.csv",
+    "invoices.jsonl",
+    "payments.jsonl",
+    "fx.csv"
+  ]
+}

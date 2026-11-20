@@ -1,0 +1,44 @@
+{
+  "schema_version": "1.0",
+  "env_version": "1.0.0",
+  "config_version": "1.0.0",
+  "config_name": "dev",
+  "config_sha256": "a30e196050eef121f42e7eaa07c3b012e119184658510f184d8b0de48493a5ce",
+  "episode_id": "ep-6cb10f8521c644e7",
+  "company_name": "Nimbus Foods KK",
+  "base_currency": "USD",
+  "currency_exponents": {
+    "JPY": 0,
+    "USD": 2
+  },
+  "period_start": "2025-04-01T00:00:00+09:00",
+  "period_end": "2025-05-01T00:00:00+09:00",
+  "period_end_exclusive": true,
+  "timezone": "+09:00",
+  "counts": {
+    "ledger": 1192,
+    "invoices": 91,
+    "payments": 66,
+    "fx": 75,
+    "documents": 157
+  },
+  "rounding": {
+    "mode": "ROUND_HALF_UP",
+    "unit": "base currency minor unit",
+    "scope": "per posting line"
+  },
+  "issue_types": [
+    "duplicate_invoice",
+    "payment_allocation",
+    "fx_conversion",
+    "period_cutoff"
+  ],
+  "files": [
+    "manifest.json",
+    "policy.json",
+    "ledger.csv",
+    "invoices.jsonl",
+    "payments.jsonl",
+    "fx.csv"
+  ]
+}

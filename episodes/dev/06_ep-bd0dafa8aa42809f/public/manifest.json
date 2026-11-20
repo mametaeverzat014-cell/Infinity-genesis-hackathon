@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "env_version": "1.0.0",
+  "config_version": "1.0.0",
+  "config_name": "clean",
+  "config_sha256": "3960c6a713234e3162e8b7f9e29be63d1b8bd0c7fb9e762e9cc89dc5111736ec",
+  "episode_id": "ep-bd0dafa8aa42809f",
+  "company_name": "Borealis Energy LLP",
+  "base_currency": "USD",
+  "currency_exponents": {
+    "EUR": 2,
+    "GBP": 2,
+    "JPY": 0,
+    "USD": 2
+  },
+  "period_start": "2026-09-01T00:00:00-03:00",
+  "period_end": "2026-10-01T00:00:00-03:00",
+  "period_end_exclusive": true,
+  "timezone": "-03:00",
+  "counts": {
+    "ledger": 619,
+    "invoices": 96,
+    "payments": 78,
+    "fx": 225,
+    "documents": 174
+  },
+  "rounding": {
+    "mode": "ROUND_HALF_UP",
+    "unit": "base currency minor unit",
+    "scope": "per posting line"
+  },
+  "issue_types": [
+    "duplicate_invoice",
+    "payment_allocation",
+    "fx_conversion",
+    "period_cutoff"
+  ],
+  "files": [
+    "manifest.json",
+    "policy.json",
+    "ledger.csv",
+    "invoices.jsonl",
+    "payments.jsonl",
+    "fx.csv"
+  ]
+}

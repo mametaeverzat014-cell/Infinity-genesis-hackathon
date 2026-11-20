@@ -1,0 +1,45 @@
+{
+  "schema_version": "1.0",
+  "env_version": "1.0.0",
+  "config_version": "1.0.0",
+  "config_name": "dev",
+  "config_sha256": "a30e196050eef121f42e7eaa07c3b012e119184658510f184d8b0de48493a5ce",
+  "episode_id": "ep-47c8572f39806f44",
+  "company_name": "Cedar Foods GmbH",
+  "base_currency": "EUR",
+  "currency_exponents": {
+    "CNY": 2,
+    "EUR": 2,
+    "GBP": 2
+  },
+  "period_start": "2025-07-01T00:00:00+05:00",
+  "period_end": "2025-08-01T00:00:00+05:00",
+  "period_end_exclusive": true,
+  "timezone": "+05:00",
+  "counts": {
+    "ledger": 725,
+    "invoices": 73,
+    "payments": 61,
+    "fx": 152,
+    "documents": 134
+  },
+  "rounding": {
+    "mode": "ROUND_HALF_UP",
+    "unit": "base currency minor unit",
+    "scope": "per posting line"
+  },
+  "issue_types": [
+    "duplicate_invoice",
+    "payment_allocation",
+    "fx_conversion",
+    "period_cutoff"
+  ],
+  "files": [
+    "manifest.json",
+    "policy.json",
+    "ledger.csv",
+    "invoices.jsonl",
+    "payments.jsonl",
+    "fx.csv"
+  ]
+}

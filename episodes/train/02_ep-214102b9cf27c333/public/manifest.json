@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "env_version": "1.0.0",
+  "config_version": "1.0.0",
+  "config_name": "train",
+  "config_sha256": "a30e196050eef121f42e7eaa07c3b012e119184658510f184d8b0de48493a5ce",
+  "episode_id": "ep-214102b9cf27c333",
+  "company_name": "Baikonur Foods BV",
+  "base_currency": "KZT",
+  "currency_exponents": {
+    "CNY": 2,
+    "JPY": 0,
+    "KWD": 3,
+    "KZT": 2
+  },
+  "period_start": "2026-01-01T00:00:00+05:30",
+  "period_end": "2026-02-01T00:00:00+05:30",
+  "period_end_exclusive": true,
+  "timezone": "+05:30",
+  "counts": {
+    "ledger": 435,
+    "invoices": 80,
+    "payments": 55,
+    "fx": 225,
+    "documents": 135
+  },
+  "rounding": {
+    "mode": "ROUND_HALF_UP",
+    "unit": "base currency minor unit",
+    "scope": "per posting line"
+  },
+  "issue_types": [
+    "duplicate_invoice",
+    "payment_allocation",
+    "fx_conversion",
+    "period_cutoff"
+  ],
+  "files": [
+    "manifest.json",
+    "policy.json",
+    "ledger.csv",
+    "invoices.jsonl",
+    "payments.jsonl",
+    "fx.csv"
+  ]
+}

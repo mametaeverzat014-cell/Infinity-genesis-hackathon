@@ -1,0 +1,167 @@
+{
+  "schema_version": "1.0",
+  "episode_id": "ep-f77f469b1087e848",
+  "base_currency": "JPY",
+  "clean": false,
+  "issues": [
+    {
+      "issue_id": "ISS-01",
+      "type": "duplicate_invoice",
+      "variant": "duplicate_document",
+      "scenario": "duplicate_with_misapplied_payment",
+      "affected_ids": [
+        "INV-3E7SBX4Q",
+        "INV-4QESN8W4"
+      ],
+      "expected_amount_minor": 4555656,
+      "currency": "JPY",
+      "evidence_sets": [
+        [
+          "DOC-Q8RLZ7YV",
+          "DOC-XCQQP748",
+          "LR-FVJUNPGUS"
+        ],
+        [
+          "DOC-Q8RLZ7YV",
+          "DOC-XCQQP748",
+          "LR-P6KCK7LUZ"
+        ]
+      ]
+    },
+    {
+      "issue_id": "ISS-02",
+      "type": "payment_allocation",
+      "variant": "missing",
+      "scenario": "duplicate_with_misapplied_payment",
+      "affected_ids": [
+        "INV-4QESN8W4",
+        "PAY-Q7QKGS5J"
+      ],
+      "expected_amount_minor": 4555656,
+      "currency": "JPY",
+      "evidence_sets": [
+        [
+          "DOC-Q8RLZ7YV",
+          "DOC-ZHM4HQE6",
+          "LR-33MXNLSEJ"
+        ],
+        [
+          "DOC-Q8RLZ7YV",
+          "DOC-ZHM4HQE6",
+          "LR-JBW3L68RB"
+        ]
+      ]
+    },
+    {
+      "issue_id": "ISS-03",
+      "type": "period_cutoff",
+      "variant": "tz_boundary",
+      "scenario": null,
+      "affected_ids": [
+        "INV-FSDTSBVA"
+      ],
+      "expected_amount_minor": 2436811,
+      "currency": "JPY",
+      "evidence_sets": [
+        [
+          "DOC-FXKPHJRC",
+          "LR-28P96J55G"
+        ],
+        [
+          "DOC-FXKPHJRC",
+          "LR-R9R3JQEKP"
+        ]
+      ]
+    },
+    {
+      "issue_id": "ISS-04",
+      "type": "duplicate_invoice",
+      "variant": "duplicate_document",
+      "scenario": null,
+      "affected_ids": [
+        "INV-DDJ9D8Q3",
+        "INV-SU6GGXDN"
+      ],
+      "expected_amount_minor": 4022107,
+      "currency": "JPY",
+      "evidence_sets": [
+        [
+          "DOC-WR8ZYR5H",
+          "DOC-ZWWU7S4B",
+          "LR-L8EPR4444"
+        ],
+        [
+          "DOC-WR8ZYR5H",
+          "DOC-ZWWU7S4B",
+          "LR-LAJQSMX4H"
+        ]
+      ]
+    },
+    {
+      "issue_id": "ISS-05",
+      "type": "duplicate_invoice",
+      "variant": "duplicate_document",
+      "scenario": null,
+      "affected_ids": [
+        "INV-CKBQG4TY",
+        "INV-L2GRGXBY"
+      ],
+      "expected_amount_minor": 576230,
+      "currency": "JPY",
+      "evidence_sets": [
+        [
+          "DOC-S9BKFZGN",
+          "DOC-UQ5H9CKA",
+          "LR-TXSGPUNZ8"
+        ],
+        [
+          "DOC-S9BKFZGN",
+          "DOC-UQ5H9CKA",
+          "LR-YZZLXZ384"
+        ]
+      ]
+    },
+    {
+      "issue_id": "ISS-06",
+      "type": "payment_allocation",
+      "variant": "missing",
+      "scenario": null,
+      "affected_ids": [
+        "INV-5FCESJXK",
+        "PAY-KXALMV6U"
+      ],
+      "expected_amount_minor": 5700755,
+      "currency": "JPY",
+      "evidence_sets": [
+        [
+          "DOC-62Z37LLK",
+          "DOC-A3LHGHAH",
+          "LR-RPU2RBLUC"
+        ],
+        [
+          "DOC-62Z37LLK",
+          "DOC-A3LHGHAH",
+          "LR-ELXRPZN5Z"
+        ]
+      ]
+    },
+    {
+      "issue_id": "ISS-07",
+      "type": "fx_conversion",
+      "variant": "inverted",
+      "scenario": null,
+      "affected_ids": [
+        "PAY-PJSF7B6B"
+      ],
+      "expected_amount_minor": 2171258,
+      "currency": "JPY",
+      "evidence_sets": [
+        [
+          "DOC-Z6L5KH8X",
+          "FX-EPXVKHRJ",
+          "LR-MYF3BEK9Q"
+        ]
+      ]
+    }
+  ]
+}

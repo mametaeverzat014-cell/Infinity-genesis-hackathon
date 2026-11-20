@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "env_version": "1.0.0",
+  "config_version": "1.0.0",
+  "config_name": "train",
+  "config_sha256": "a30e196050eef121f42e7eaa07c3b012e119184658510f184d8b0de48493a5ce",
+  "episode_id": "ep-46a89a317d91c76f",
+  "company_name": "Altyn Robotics Inc",
+  "base_currency": "EUR",
+  "currency_exponents": {
+    "CNY": 2,
+    "EUR": 2,
+    "KWD": 3,
+    "KZT": 2
+  },
+  "period_start": "2026-08-01T00:00:00+00:00",
+  "period_end": "2026-09-01T00:00:00+00:00",
+  "period_end_exclusive": true,
+  "timezone": "+00:00",
+  "counts": {
+    "ledger": 913,
+    "invoices": 52,
+    "payments": 45,
+    "fx": 228,
+    "documents": 97
+  },
+  "rounding": {
+    "mode": "ROUND_HALF_UP",
+    "unit": "base currency minor unit",
+    "scope": "per posting line"
+  },
+  "issue_types": [
+    "duplicate_invoice",
+    "payment_allocation",
+    "fx_conversion",
+    "period_cutoff"
+  ],
+  "files": [
+    "manifest.json",
+    "policy.json",
+    "ledger.csv",
+    "invoices.jsonl",
+    "payments.jsonl",
+    "fx.csv"
+  ]
+}

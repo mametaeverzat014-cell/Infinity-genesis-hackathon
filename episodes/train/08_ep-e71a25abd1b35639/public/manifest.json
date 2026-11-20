@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "env_version": "1.0.0",
+  "config_version": "1.0.0",
+  "config_name": "interaction",
+  "config_sha256": "2f6937e7457f74725eeada0ed4cb0b1b4a6ee64f6846ee073ec2aa47b2a9277f",
+  "episode_id": "ep-e71a25abd1b35639",
+  "company_name": "Willow Systems LLP",
+  "base_currency": "JPY",
+  "currency_exponents": {
+    "EUR": 2,
+    "GBP": 2,
+    "JPY": 0,
+    "KWD": 3
+  },
+  "period_start": "2026-10-01T00:00:00+06:00",
+  "period_end": "2026-11-01T00:00:00+06:00",
+  "period_end_exclusive": true,
+  "timezone": "+06:00",
+  "counts": {
+    "ledger": 982,
+    "invoices": 103,
+    "payments": 70,
+    "fx": 225,
+    "documents": 173
+  },
+  "rounding": {
+    "mode": "ROUND_HALF_UP",
+    "unit": "base currency minor unit",
+    "scope": "per posting line"
+  },
+  "issue_types": [
+    "duplicate_invoice",
+    "payment_allocation",
+    "fx_conversion",
+    "period_cutoff"
+  ],
+  "files": [
+    "manifest.json",
+    "policy.json",
+    "ledger.csv",
+    "invoices.jsonl",
+    "payments.jsonl",
+    "fx.csv"
+  ]
+}
