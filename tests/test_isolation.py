@@ -116,17 +116,31 @@ class SeedSecretTests(unittest.TestCase):
         self.assertEqual(b, c)
 
     def test_agent_process_does_not_inherit_secret(self):
-        from auditgym.runner import ProcessAgent
+        # Portable (Linux, macOS, Windows): capture the environment ProcessAgent passes to the
+        # agent process, then start a real child with exactly that environment and ask it.
+        from unittest import mock
+        from auditgym import runner
+        real_popen = subprocess.Popen
+        captured = {}
+
+        def spy(*args, **kwargs):
+            captured["env"] = kwargs.get("env")
+            return real_popen(*args, **kwargs)
+
         os.environ["AUDITGYM_SEED_SECRET"] = "top-secret"
         try:
-            ag = ProcessAgent("silent")
-            pid = ag.proc.pid
-            with open("/proc/%d/environ" % pid, "rb") as fh:
-                env = fh.read()
+            with mock.patch.object(runner.subprocess, "Popen", side_effect=spy):
+                ag = runner.ProcessAgent("silent")
             ag.close()
         finally:
             del os.environ["AUDITGYM_SEED_SECRET"]
-        self.assertNotIn(b"AUDITGYM_SEED_SECRET", env)
+        env = captured["env"]
+        self.assertIsNotNone(env)  # an explicit environment is passed, not the parent's
+        self.assertNotIn("AUDITGYM_SEED_SECRET", env)
+        out = subprocess.run([sys.executable, "-c",
+                              "import os; print('AUDITGYM_SEED_SECRET' in os.environ)"],
+                             env=env, capture_output=True, text=True, timeout=60)
+        self.assertEqual(out.stdout.strip(), "False")
 
     def test_strict_evidence_requires_observed_ids(self):
         from .helpers import erroneous, oracle_submission
